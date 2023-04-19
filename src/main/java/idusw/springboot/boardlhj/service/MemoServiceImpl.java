@@ -1,8 +1,8 @@
-package idusw.springboot.board3a.service;
+package idusw.springboot.boardlhj.service;
 
-import idusw.springboot.board3a.domain.Memo;
-import idusw.springboot.board3a.entity.MemoEntity;
-import idusw.springboot.board3a.repository.MemoRepository;
+import idusw.springboot.boardlhj.domain.Memo;
+import idusw.springboot.boardlhj.entity.MemoEntity;
+import idusw.springboot.boardlhj.repository.MemoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

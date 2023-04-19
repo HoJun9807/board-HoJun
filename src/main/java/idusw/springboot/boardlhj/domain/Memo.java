@@ -1,4 +1,4 @@
-package idusw.springboot.board3a.domain;
+package idusw.springboot.boardlhj.domain;
 
 import lombok.*; // 애노테이션 기반 상용코드(boiler-plate code)를 생성해주는 라이브러리
 

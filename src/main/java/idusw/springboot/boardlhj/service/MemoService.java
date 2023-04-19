@@ -1,6 +1,6 @@
-package idusw.springboot.board3a.service;
+package idusw.springboot.boardlhj.service;
 
-import idusw.springboot.board3a.domain.Memo;
+import idusw.springboot.boardlhj.domain.Memo;
 
 import java.util.List;
 
