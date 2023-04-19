@@ -1,4 +1,4 @@
-package idusw.springboot.boardlhj;
+package idusw.springboot.boardHoJun;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,7 @@
-package idusw.springboot.boardlhj.controller;
+package idusw.springboot.boardHoJun.controller;
 
-import idusw.springboot.boardlhj.domain.Memo;
-import idusw.springboot.boardlhj.service.MemoService;
+import idusw.springboot.boardHoJun.domain.Memo;
+import idusw.springboot.boardHoJun.service.MemoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

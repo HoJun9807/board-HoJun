@@ -1,4 +1,4 @@
-package idusw.springboot.boardlhj.controller;
+package idusw.springboot.boardHoJun.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

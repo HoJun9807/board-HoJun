@@ -1,8 +1,8 @@
-package idusw.springboot.boardlhj.service;
+package idusw.springboot.boardHoJun.service;
 
-import idusw.springboot.boardlhj.domain.Memo;
-import idusw.springboot.boardlhj.entity.MemoEntity;
-import idusw.springboot.boardlhj.repository.MemoRepository;
+import idusw.springboot.boardHoJun.domain.Memo;
+import idusw.springboot.boardHoJun.entity.MemoEntity;
+import idusw.springboot.boardHoJun.repository.MemoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package idusw.springboot.boardlhj.service;
+package idusw.springboot.boardHoJun.service;
 
-import idusw.springboot.boardlhj.domain.Memo;
+import idusw.springboot.boardHoJun.domain.Memo;
 
 import java.util.List;
 
