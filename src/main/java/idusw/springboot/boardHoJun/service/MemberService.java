@@ -12,4 +12,5 @@ public interface MemberService {
     int delete(Member m);
 
 
+    Member login(Member m);
 }
