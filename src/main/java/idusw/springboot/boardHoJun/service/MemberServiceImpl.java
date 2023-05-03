@@ -70,12 +70,25 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public int update(Member m) {
-        return 0;
+        MemberEntity entity = MemberEntity.builder()
+                .seq(m.getSeq())
+                .email(m.getEmail())
+                .name(m.getName())
+                .pw(m.getPw())
+                .build();
+        if(memberRepository.save(entity) != null)
+            return 1;
+        else
+            return 0;
     }
 
     @Override
     public int delete(Member m) {
-        return 0;
+        MemberEntity entity = MemberEntity.builder()
+                .seq(m.getSeq())
+                .build();
+        memberRepository.deleteById(entity.getSeq());
+        return 1;
     }
 
     @Override
