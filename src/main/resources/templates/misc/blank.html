@@ -12,7 +12,7 @@
     <title>HoJun Blog - Blank</title>
 
     <!-- Custom fonts for this template-->
-    <div th:replace="~{/fragments/main-fragments :: head}"></div>
+    <div th:replace="~{/main/main-fragments :: head}"></div>
 </head>
 
 <body id="page-top">
@@ -21,7 +21,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div th:replace="~{/fragments/main-fragments :: sidebar}"></div>
+        <div th:replace="~{/main/main-fragments :: sidebar}"></div>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -247,7 +247,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <div th:replace="~{/fragments/main-fragments :: footer}"></div>
+            <div th:replace="~{/main/main-fragments :: footer}"></div>
             <!-- End of Footer -->
 
         </div>
@@ -275,14 +275,14 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="members/login.html">Logout</a>
+                    <a class="btn btn-primary" href="../members/login.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <div th:replace="~{/fragments/main-fragments :: tail}"></div>
+    <div th:replace="~{/main/main-fragments :: tail}"></div>
 </body>
 
 </html>

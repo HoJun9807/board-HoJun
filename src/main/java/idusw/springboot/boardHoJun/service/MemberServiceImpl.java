@@ -2,14 +2,20 @@ package idusw.springboot.boardHoJun.service;
 
 import idusw.springboot.boardHoJun.domain.Member;
 import idusw.springboot.boardHoJun.domain.Memo;
+import idusw.springboot.boardHoJun.domain.PageRequestDTO;
+import idusw.springboot.boardHoJun.domain.PageResultDTO;
 import idusw.springboot.boardHoJun.entity.MemberEntity;
 import idusw.springboot.boardHoJun.entity.MemoEntity;
 import idusw.springboot.boardHoJun.repository.MemberRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -50,21 +56,23 @@ public class MemberServiceImpl implements MemberService {
         //1. 매개변수를 처리(처리를 위한 객체 선언 및 초기화), repository 객체에게 전달
         //2. repository 객체의 해달 메소드가 처리한 결과를 반환 유형으로 변환
         //repository : entity 객체를 대상으로 한다. service : DTO or Domain 객체를 대상으로 한다.
-
-        List<Member> result = new ArrayList<>();
-        List<MemberEntity> entities = memberRepository.findAll();
-        for(MemberEntity e : entities) {
-            // Function Language 특징을 활용한 처리, Lambda 식, Lombok library 활용
-            Member m = Member.builder()
-                    .seq(e.getSeq())
-                    .email(e.getEmail())
-                    .name(e.getName())
-                    .build();
-
-            result.add(m);
+        List<MemberEntity> entities = new ArrayList<>();
+        List<Member> members = null;
+        if((entities = memberRepository.findAll()) != null) {
+            members = new ArrayList<>();
+            for(MemberEntity e : entities) {
+                Member m = Member.builder()
+                        .seq(e.getSeq())
+                        .email(e.getEmail())
+                        .name(e.getName())
+                        .pw(e.getPw())
+                        .regDate(e.getRegDate())
+                        .modDate(e.getModDate())
+                        .build();
+                members.add(m);
+            }
         }
-
-        return result;
+        return members;
     }
 
 
@@ -103,5 +111,15 @@ public class MemberServiceImpl implements MemberService {
             result.setPw(entity.getPw());
         }
         return result;
+    }
+
+    @Override
+    public PageResultDTO<Member, MemberEntity> getList(PageRequestDTO requestDTO) {
+        Pageable pageable = requestDTO.getPageable(Sort.by("seq").ascending());
+
+        Page<MemberEntity> result = memberRepository.findAll(pageable);
+        Function<MemberEntity, Member> fn = (entity -> entityToDto(entity));
+
+        return new PageResultDTO<>(result, fn);
     }
 }

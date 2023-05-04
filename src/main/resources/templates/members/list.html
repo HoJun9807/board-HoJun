@@ -12,7 +12,7 @@
     <title>HoJun Blog - Member List</title>
 
     <!-- Custom fonts for this template -->
-    <div th:replace="~{/fragments/main-fragments :: head}"></div>
+    <div th:replace="~{/main/main-fragments :: head}"></div>
 
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div th:replace="~{/fragments/main-fragments :: sidebar}"></div>
+        <div th:replace="~{/main/main-fragments :: sidebar}"></div>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -258,26 +258,34 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Email</th>
-                                            <th>Name</th>
-
-                                        </tr>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>이메일</th>
+                                        <th>이름</th>
+                                        <th>암호</th>
+                                        <th>등록일</th>
+                                        <th>수정일</th>
+                                    </tr>
                                     </thead>
                                     <tfoot>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Email</th>
-                                            <th>Name</th>
-                                        </tr>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>이메일</th>
+                                        <th>이름</th>
+                                        <th>암호</th>
+                                        <th>등록일</th>
+                                        <th>수정일</th>
+                                    </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr th:each="member : ${list}">
-                                            <td>[[${member.seq}]]</td>
-                                            <td>[[${member.email}]]</td>
-                                            <td>[[${member.name}]]</td>
-                                        </tr>
+                                    <tr th:each="member : ${list}">
+                                        <td>[[${member.seq}]]</td>
+                                        <td>[[${member.email}]]</td>
+                                        <td>[[${member.name}]]</td>
+                                        <td>[[${member.pw}]]</td>
+                                        <td>[[${member.regDate}]]</td>
+                                        <td>[[${member.modDate}]]</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -291,7 +299,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <div th:replace="~{/fragments/main-fragments :: footer}"></div>
+            <div th:replace="~{/main/main-fragments :: footer}"></div>
             <!-- End of Footer -->
 
         </div>
@@ -326,7 +334,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <div th:replace="~{/fragments/main-fragments :: tail}"></div>
+    <div th:replace="~{/main/main-fragments :: tail}"></div>
 
 </body>
 

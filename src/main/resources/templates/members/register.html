@@ -12,7 +12,7 @@
     <title>HoJun Blog - Register</title>
 
     <!-- Custom fonts for this template-->
-    <div th:replace="~{/fragments/main-fragments :: head}"></div>
+    <div th:replace="~{/main/main-fragments :: head}"></div>
 </head>
 
 <body class="bg-gradient-primary">
@@ -32,39 +32,29 @@
 
                             <form class="user" th:action="@{'/members/register'}" th:object="${member}" th:method="post">
                                 <div class="form-group row">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" th:field="*{name}"
-                                               placeholder="First Name">
-                                    </div>
+                                    <input type="text" name="name" th:field="*{name}" class="form-control form-control-user" id="exampleFirstName"
+                                           placeholder=" Name">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" name="email" th:field="*{email}" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                           placeholder="Email Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" name="pw" th:field="*{pw}" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                               id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                               id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-
                                 <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
-
                                 <hr>
-
-<!--                                <a href="/members/login" class="btn btn-primary btn-user btn-block">-->
-<!--                                    Register Account-->
-<!--                                </a>-->
-<!--                                <hr>-->
-
-                                <a href="../admin/index.html" class="btn btn-google btn-user btn-block">
+                                <a href="../main/index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
                                 </a>
-                                <a href="../admin/index.html" class="btn btn-facebook btn-user btn-block">
+                                <a href="../main/index.html" class="btn btn-facebook btn-user btn-block">
                                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                                 </a>
                             </form>
@@ -84,7 +74,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <div th:replace="~{/fragments/main-fragments :: tail}"></div>
+    <div th:replace="~{/main/main-fragments :: tail}"></div>
 
 </body>
 

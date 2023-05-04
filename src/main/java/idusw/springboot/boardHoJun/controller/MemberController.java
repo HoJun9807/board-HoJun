@@ -1,6 +1,9 @@
 package idusw.springboot.boardHoJun.controller;
 
 import idusw.springboot.boardHoJun.domain.Member;
+import idusw.springboot.boardHoJun.domain.PageRequestDTO;
+import idusw.springboot.boardHoJun.domain.PageResultDTO;
+import idusw.springboot.boardHoJun.entity.MemberEntity;
 import idusw.springboot.boardHoJun.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -35,7 +38,7 @@ public class MemberController {
             return "redirect:/";
         }
         else
-            return "/main/error";
+            return "/errors/404";
     }
     @GetMapping("/logout")
     public String logoutMember() {
@@ -52,6 +55,19 @@ public class MemberController {
         else
             return "/errors/404";
     }
+    @GetMapping(value = {"/pn/{pn}"})
+    public String listMemberByPageNumber(@PathVariable("pn") int pn,Model model) {
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().page(pn).size(10).build();
+        PageResultDTO<Member, MemberEntity> resultDTO = memberService.getList(pageRequestDTO);
+        List<Member> result = resultDTO.getDtoList();
+        if(result != null) {
+            model.addAttribute("list", result);
+            return "/members/list";
+        }
+        else
+            return "/errors/404";
+    }
+
     @GetMapping("/register")
     public String getRegisterForm(Model model) { // form 요청 -> view (template engine)
         model.addAttribute("member", Member.builder().build());

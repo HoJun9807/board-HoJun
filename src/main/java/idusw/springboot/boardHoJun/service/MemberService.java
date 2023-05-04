@@ -1,9 +1,15 @@
 package idusw.springboot.boardHoJun.service;
 
 import idusw.springboot.boardHoJun.domain.Member;
+import idusw.springboot.boardHoJun.domain.PageRequestDTO;
+import idusw.springboot.boardHoJun.domain.PageResultDTO;
+import idusw.springboot.boardHoJun.entity.BaseEntity;
+import idusw.springboot.boardHoJun.entity.MemberEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface MemberService {
     int create(Member m);
     Member read(Member m);
@@ -13,4 +19,27 @@ public interface MemberService {
 
 
     Member login(Member m);
+    // java 1.8 : 인터페이스가 기본 메소드를 가질 수 있도록 함.
+    PageResultDTO<Member, MemberEntity> getList(PageRequestDTO requestDTO);
+
+    default MemberEntity dtoToEntity(Member dto){ //dto 객체를 entity 객체로 변환 : service -> repository
+        MemberEntity entity = MemberEntity.builder()
+                .seq(dto.getSeq())
+                .email(dto.getEmail())
+                .name(dto.getName())
+                .pw(dto.getPw())
+                .build();
+        return entity;
+    }
+    default Member entityToDto(MemberEntity entity) { //entity 객체를 dto 객체로 변환 : service -> controller
+        Member dto = Member.builder()
+                .seq(entity.getSeq())
+                .email(entity.getEmail())
+                .name(entity.getName())
+                .pw(entity.getPw())
+                .regDate(entity.getRegDate())
+                .modDate(entity.getModDate())
+                .build();
+        return dto;
+    }
 }
